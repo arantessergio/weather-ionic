@@ -25,3 +25,45 @@
 #container a {
   text-decoration: none;
 }
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.col-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.col-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.temperature-text {
+  font-size: 32px;
+  font-weight: 700;
+  color: #EB6D2D;
+}
+
+ion-toolbar {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.condition-container {
+  display: flex;
+  align-items: center;
+}
