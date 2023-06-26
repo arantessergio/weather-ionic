@@ -67,3 +67,23 @@ ion-toolbar {
   display: flex;
   align-items: center;
 }
+
+ion-card-title {
+  font-size: 24px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+ion-icon {
+  font-size: 24px;
+}
+
+.climate-info {
+  font-size: 12px;
+  color: #202122;
+}
+
+.climate-img {
+  width: 48px;
+  height: 48px;
+}

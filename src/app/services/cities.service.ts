@@ -4,7 +4,7 @@ import { City } from '../models/City';
 import { Observable } from 'rxjs';
 import { v4 } from 'uuid';
 
-const BASE_URL = 'http://api.weatherapi.com/v1';
+const BASE_URL = 'https://api.weatherapi.com/v1';
 const API_KEY = '1bda4888d4f14e31b2b210129232306';
 const CITIES_KEY = 'cities';
 

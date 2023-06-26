@@ -5,17 +5,25 @@
 </ion-header>
 <ion-content class="ion-padding">
   <ion-item>
-    <ion-input label="Email" labelPlacement="floating" type="email"></ion-input>
-  </ion-item>
-  <ion-item>
     <ion-input
+      label="Email"
+      labelPlacement="floating"
+      type="email"
+      [(ngModel)]="email"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
       label="Senha"
       labelPlacement="floating"
       type="password"
+      [(ngModel)]="password"
     ></ion-input>
   </ion-item>
 </ion-content>
 
-<ion-footer>
-  <ion-button expand="full" color="secondary" (click)="onLoginClicked()">Entrar</ion-button>
+<ion-footer class="footer">
+  <ion-button expand="full" color="secondary" (click)="onLoginClicked()"
+    >Entrar</ion-button
+  >
 </ion-footer>

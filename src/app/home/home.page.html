@@ -19,10 +19,9 @@
   <ion-card *ngFor="let city of cityListWithClimate">
     <ion-card-header>
       <div class="card-title">
-        <ion-card-title>{{city.name}}</ion-card-title>
+        <ion-card-title color="primary">{{city.name}}</ion-card-title>
         <ion-icon
           name="trash-outline"
-          size="large"
           color="primary"
           (click)="removeCity(city)"
         ></ion-icon>
@@ -32,16 +31,23 @@
     <ion-card-content>
       <div class="card-content">
         <div class="col-left">
-          <ion-label>Vento: {{city.climateData?.wind}} km/h</ion-label>
-          <ion-label>Precip: {{city.climateData?.rain}} mm</ion-label>
-          <ion-label>Pressão: {{city.climateData?.pressure}} cm</ion-label>
+          <ion-label class="climate-info"
+            ><strong>Vento: </strong>{{city.climateData?.wind}} km/h</ion-label
+          >
+          <ion-label class="climate-info"
+            ><strong>Precip:</strong> {{city.climateData?.rain}} mm</ion-label
+          >
+          <ion-label class="climate-info"
+            ><strong>Pressão:</strong> {{city.climateData?.pressure}}
+            cm</ion-label
+          >
         </div>
         <div class="col-right">
           <span class="temperature-text" color="secondary"
             >{{city.climateData?.temperature}}°C</span
           >
           <div class="condition-container">
-            <img [src]="city.climateData?.condition?.icon" />
+            <img [src]="city.climateData?.condition?.icon" class="climate-img" />
             <ion-label>{{city.climateData?.condition?.text}}</ion-label>
           </div>
         </div>
