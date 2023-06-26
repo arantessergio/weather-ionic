@@ -10,6 +10,7 @@ export class ClimateData {
 }
 
 export class City {
+  id?: string;
   name?: string;
   cordinates?: string;
   climateData?: ClimateData;

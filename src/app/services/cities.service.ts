@@ -22,14 +22,14 @@ export class CitiesService {
 
   fillInitialData() {
     const cities = this.getLocalStorageCities();
-    if (!cities) {
+    if (!cities || (cities && !JSON.parse(cities).length)) {
       window.localStorage.setItem(
         CITIES_KEY,
         JSON.stringify([
-          { name: 'Curitiba', cordinates: '-25.4244,-49.2653' },
-          { name: 'Alphaville', cordinates: '-23.4769 ,-46.8662' },
-          { name: 'Sorocaba', cordinates: '-23.5015,-47.4526' },
-          { name: 'Amsterdã', cordinates: '52.3702,4.8952' },
+          { id: v4(), name: 'Curitiba', cordinates: '-25.4244,-49.2653' },
+          { id: v4(), name: 'Alphaville', cordinates: '-23.4769 ,-46.8662' },
+          { id: v4(), name: 'Sorocaba', cordinates: '-23.5015,-47.4526' },
+          { id: v4(), name: 'Amsterdã', cordinates: '52.3702,4.8952' },
         ])
       );
     }
@@ -61,9 +61,7 @@ export class CitiesService {
 
       window.localStorage.setItem(
         CITIES_KEY,
-        JSON.stringify(
-          parsed.filter((item: City) => item.name !== cityToRemove)
-        )
+        JSON.stringify(parsed.filter((item: City) => item.id !== cityToRemove))
       );
     }
   }
@@ -74,9 +72,12 @@ export class CitiesService {
     );
   }
 
-  fetchClimateToManyCities(arr: Array<string | undefined>) {
+  fetchClimateToManyCities(arr: Array<City>) {
     return this.http.post(`${BASE_URL}/current.json?key=${API_KEY}&q=bulk`, {
-      locations: arr?.map((item) => ({ q: item, custom_id: v4() })),
+      locations: arr?.map((item) => ({
+        q: item.cordinates,
+        custom_id: item.id,
+      })),
     });
   }
 

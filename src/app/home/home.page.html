@@ -13,6 +13,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div class="emptyStateContainer" *ngIf="!cityListWithClimate.length">
+    <ion-label color="primary">Nenhuma cidade cadastrada.</ion-label>
+  </div>
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -47,7 +50,10 @@
             >{{city.climateData?.temperature}}°C</span
           >
           <div class="condition-container">
-            <img [src]="city.climateData?.condition?.icon" class="climate-img" />
+            <img
+              [src]="city.climateData?.condition?.icon"
+              class="climate-img"
+            />
             <ion-label>{{city.climateData?.condition?.text}}</ion-label>
           </div>
         </div>
